@@ -17,7 +17,7 @@ jobs:
       run: |
         docker run \
         -v ${{ github.workspace }}:/root/workspace \
-        techdevangelist/miyoomini-buildroot:latest /bin/bash -c "cd /root/workspace && export LDFLAGS="-mfpu=neon-vfpv4 -mfloat-abi=hard" && make -f Makefile.libretro platform=classic_armv7_a7 && ls -lah"
+        techdevangelist/miyoomini-buildroot:latest /bin/bash -c "cd /root/workspace && LDFLAGS="-mfpu=neon-vfpv4 -mfloat-abi=hard" make -f Makefile.libretro platform=classic_armv7_a7 && ls -lah"
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.0.0
